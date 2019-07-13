@@ -132,7 +132,7 @@ const char string_15[] PROGMEM = "Finish  a  game  withthe 4 rooks and the 4bish
 const char string_16[] PROGMEM = "Finish a game in lessthan 20 moves";
 const char string_17[] PROGMEM = "Finish a game in lessthan 20 seconds";
 
-const char string_18[] PROGMEM = "Unlock   all   expertachievements";
+const char string_18[] PROGMEM = "Finish  a  game  withnumber  of  movementsequal to the seconds";
 const char string_19[] PROGMEM = "Finish a game in  150moves";
 const char string_20[] PROGMEM = "Finish  a  game  withall the pieces in theopposite color";
 const char string_21[] PROGMEM = "Finish  a  game  with4 rooks in a row  and4 bishops in another";
@@ -793,8 +793,8 @@ bool check_achievements() {
     achievements3 = write_bit_1(5, achievements3);
 
   
-  // Unlock all expert achievements
-  completed = achievements3 == 0b111111 && achievements4 == 0b011111;
+  // Finish a game with number of movements equal to the seconds
+  completed = last_score.seconds == last_score.movs;
   if(completed)
     achievements4 = write_bit_1(0, achievements4);
 
