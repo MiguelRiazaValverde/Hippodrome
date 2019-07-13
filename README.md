@@ -43,3 +43,6 @@ At the end of the game, you will start to download a bar, at the end it will cha
 To access achievements, enter the codes in the main menu:
 - Down, B, Down, B; for basic achievements.
 - Down, Down, B, Down, Down, B; for expert achievements.
+
+# Gameplay
+![Gameplay](./img/gameplay.gif)
