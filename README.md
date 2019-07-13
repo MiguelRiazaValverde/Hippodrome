@@ -1,4 +1,4 @@
-![Logo](./img/title2.png)
+![Logo](./img/title.png)
 
 Hippodrome is a variant of single-player chess where the knights start in the first row and the rest of the pieces, except one, is randomly distributed in the remaining squares.
 The game consists in taking the knights to the last row, the capture of pieces is not allowed.
