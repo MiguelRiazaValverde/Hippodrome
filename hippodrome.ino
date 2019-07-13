@@ -122,12 +122,8 @@ const char string_8[] PROGMEM = "Finish  a  game  withthe 4 bishops forminga  sq
 const char string_9[] PROGMEM = "Finish  a  game  withthe 4 rooks forming asquare   and  in  itscolor";
 const char string_10[] PROGMEM = "Finish a game in lessthan 22 moves";
 const char string_11[] PROGMEM = "Finish a game in lessthan 22 seconds";
-/*
-  Finish a game in 150 moves.
-  Finish a game between 150 and 151 seconds.
-  Unlock 23 achievements.
-  It remains 120 seconds in the menu with the sound activated.
- */
+
+
 // Achievements 2
 const char string_12[] PROGMEM = "Unlock    all   basicachievements";
 const char string_13[] PROGMEM = "Finish a game between150  and  151 seconds";
@@ -191,7 +187,6 @@ const uint16_t music_end_game[] PROGMEM = {
 
 
 // Sprites
-
 const unsigned char PROGMEM knight_back[] = {
   0x00, 0x00, 0x3e, 0x3e, 0xbe, 0xfe, 0xfe, 0xfe, 0xfe, 0xfe, 0xfe, 0xfe, 0x00, 0x00, 0x00, 0x00, 
   0x00, 0x00, 0x78, 0x7e, 0x7f, 0x7f, 0x7f, 0x7f, 0x7f, 0x7f, 0x7f, 0x7f, 0x7e, 0x78, 0x00, 0x00, 
@@ -947,12 +942,9 @@ void draw_piece_type(PIECE piece, int x, int y, int color) {
 void draw_board() {
   int color = hippodrome.color_init;
   int init = color;
-  for(int i = 0; i < 4; i++) {
-    for(int j = 0; j < 4; j++) {
+  for(int i = 0; i < 4; i++)
+    for(int j = 0; j < 4; j++)
       draw_field(j * 16, i * 16, get_color(j, i, color));
-      //draw_select(i * 16, j * 16, get_color(i, j+1, color));
-    }
-  }
 }
 
 void draw_pieces() {
@@ -980,9 +972,6 @@ void draw_game() {
   draw_name_piece();
   draw_movements();
   draw_time();
-
-  //if(hippodrome.n_movements == 0)
-  //  return;
 
   for(int i = 0; i < hippodrome.n_movements; i++) {
     int n = hippodrome.movements[i];
@@ -1164,9 +1153,7 @@ void initialize_mode_game() {
 }
 
 
-void initialize_records() {
-  //sound.tones(music_score);
-}
+void initialize_records() {}
 
 
 void initialize_end_game() {
@@ -1176,6 +1163,7 @@ void initialize_end_game() {
   menu_n_piece = -1;
   sound.tones(music_end_game);
 }
+
 
 void initialize_achievements() {
   int a1 = achievements1;
@@ -1198,6 +1186,7 @@ void initialize_achievements() {
   achievements_position = 0;
   strcpy_P(achievement_description, (char *)pgm_read_word(&(achievements_descriptions[achievements_position+offset])));
 }
+
 
 void initialize_info() {
   info_piece = NONE;
@@ -1271,10 +1260,8 @@ void mode_info() {
     last_milliseconds = millis();
   }
   
-  if(pressed_a() || pressed_b()) {
-    info_piece = NONE;
+  if(pressed_a() || pressed_b())
     change_mode_menu();
-  }
 }
 
 void mode_records() {
@@ -1377,7 +1364,6 @@ void mode_game() {
     clear_screen = false;
     draw_end();
     draw_time(seconds, milliseconds);
-    //change_mode_end_game();
   }
 
 }
@@ -1621,7 +1607,6 @@ void change_mode_achievements() {
 
 
 void setup() {
-  //EEPROM.begin();
   arduboy.begin();
   arduboy.safeMode();
   arduboy.setFrameRate(24);
@@ -1630,7 +1615,6 @@ void setup() {
   load_memory();
   active_sound = arduboy.audio.enabled();
   change_mode_menu();
-  last_milliseconds_game = millis();
 }
 
 void loop() {
