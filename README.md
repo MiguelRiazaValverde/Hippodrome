@@ -20,6 +20,7 @@ This project is a version of the hippodrome chess game for Arduboy.
 - Press button A to move the piece.
 - Press button B to get another random game.
 - Press and hold button B to return to the main menu.
+
 At the end of the game, you will start to download a bar, at the end it will change to the scoring screen. To stop the bar momentarily, press and hold any key.
 
 ### 3. Score screen
